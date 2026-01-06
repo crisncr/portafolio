@@ -1,5 +1,8 @@
 import axios from 'axios'
 
+// URL del backend: usa la variable de entorno VITE_API_URL
+// En Render, configura esta variable de entorno con la URL de tu backend
+// Ejemplo: https://portafolio-backend.onrender.com
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000'
 
 const api = axios.create({

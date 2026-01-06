@@ -57,10 +57,13 @@ allowed_origins = [
     "https://crisncr.github.io/portafolio",  # GitHub Pages con subdirectorio
 ]
 
-# Agregar URL de Render si está definida
-render_url = os.getenv("RENDER_EXTERNAL_URL")
-if render_url:
-    allowed_origins.append(render_url)
+# Agregar URLs de Render (backend y frontend)
+render_backend_url = os.getenv("RENDER_EXTERNAL_URL")
+if render_backend_url:
+    allowed_origins.append(render_backend_url)
+
+# Permitir cualquier subdominio de Render para el frontend
+allowed_origins.append("https://*.onrender.com")
 
 app.add_middleware(
     CORSMiddleware,
