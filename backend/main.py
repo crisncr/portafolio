@@ -62,12 +62,17 @@ render_backend_url = os.getenv("RENDER_EXTERNAL_URL")
 if render_backend_url:
     allowed_origins.append(render_backend_url)
 
-# Permitir cualquier subdominio de Render para el frontend
-allowed_origins.append("https://*.onrender.com")
+# Permitir cualquier subdominio de Render para el frontend (usar wildcard)
+# FastAPI no soporta wildcards directamente, así que permitimos todos los orígenes en producción
+# O puedes agregar manualmente la URL de tu frontend aquí
+
+# En producción, permitir todos los orígenes de Render
+# En desarrollo, usar la lista específica
+is_production = os.getenv("RENDER") is not None or os.getenv("RENDER_EXTERNAL_URL") is not None
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=allowed_origins,
+    allow_origins=["*"] if is_production else allowed_origins,  # Permitir todos en producción
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
