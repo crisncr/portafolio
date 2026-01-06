@@ -320,14 +320,14 @@ const Frameworks = () => {
 
   const getColorClasses = (color) => {
     const colors = {
-      purple: 'bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-300 border-purple-300 dark:border-purple-600',
-      green: 'bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 border-green-300 dark:border-green-600',
-      blue: 'bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 border-blue-300 dark:border-blue-600',
-      teal: 'bg-teal-100 dark:bg-teal-900 text-teal-700 dark:text-teal-300 border-teal-300 dark:border-teal-600',
-      yellow: 'bg-yellow-100 dark:bg-yellow-900 text-yellow-700 dark:text-yellow-300 border-yellow-300 dark:border-yellow-600',
-      pink: 'bg-pink-100 dark:bg-pink-900 text-pink-700 dark:text-pink-300 border-pink-300 dark:border-pink-600',
-      orange: 'bg-orange-100 dark:bg-orange-900 text-orange-700 dark:text-orange-300 border-orange-300 dark:border-orange-600',
-      red: 'bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-300 border-red-300 dark:border-red-600',
+      purple: 'bg-purple-100 dark:bg-purple-800/30 text-purple-700 dark:text-purple-200 border-purple-300 dark:border-purple-500/50',
+      green: 'bg-green-100 dark:bg-green-800/30 text-green-700 dark:text-green-200 border-green-300 dark:border-green-500/50',
+      blue: 'bg-blue-100 dark:bg-blue-800/30 text-blue-700 dark:text-blue-200 border-blue-300 dark:border-blue-500/50',
+      teal: 'bg-teal-100 dark:bg-teal-800/30 text-teal-700 dark:text-teal-200 border-teal-300 dark:border-teal-500/50',
+      yellow: 'bg-yellow-100 dark:bg-yellow-800/30 text-yellow-700 dark:text-yellow-200 border-yellow-300 dark:border-yellow-500/50',
+      pink: 'bg-pink-100 dark:bg-pink-800/30 text-pink-700 dark:text-pink-200 border-pink-300 dark:border-pink-500/50',
+      orange: 'bg-orange-100 dark:bg-orange-800/30 text-orange-700 dark:text-orange-200 border-orange-300 dark:border-orange-500/50',
+      red: 'bg-red-100 dark:bg-red-800/30 text-red-700 dark:text-red-200 border-red-300 dark:border-red-500/50',
     }
     return colors[color] || colors.blue
   }
