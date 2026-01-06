@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portafolio - Cristopher Cuevas</title>
+    <script>
+      // Forzar modo claro desde el inicio - antes de que React se monte
+      (function() {
+        document.documentElement.classList.remove('dark');
+        localStorage.removeItem('darkMode');
+        // Esperar a que el body esté disponible
+        if (document.body) {
+          document.body.style.backgroundColor = '#ffffff';
+        } else {
+          document.addEventListener('DOMContentLoaded', function() {
+            document.body.style.backgroundColor = '#ffffff';
+          });
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
+
