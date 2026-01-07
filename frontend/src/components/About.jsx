@@ -20,7 +20,7 @@ const About = () => {
     <section id="sobre-mi" className="py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
       <div className="container mx-auto px-4">
         <h2 className="section-title">Sobre Mí</h2>
-        
+
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row items-center gap-8">
             <motion.div
@@ -30,8 +30,12 @@ const About = () => {
               transition={{ duration: 0.6 }}
               className="flex-shrink-0"
             >
-              <div className="w-64 h-64 rounded-full bg-gradient-to-br from-purple-400 to-primary-400 flex items-center justify-center text-6xl font-bold text-white shadow-xl">
-                CC
+              <div className="w-64 h-64 rounded-full overflow-hidden shadow-xl border-4 border-purple-400/20">
+                <img
+                  src="/proyecto2/perfil.jpeg"
+                  alt="Foto de perfil"
+                  className="w-full h-full object-cover object-[50%_25%]"
+                />
               </div>
             </motion.div>
 
@@ -43,15 +47,15 @@ const About = () => {
               className="flex-1"
             >
               <p className="text-gray-700 dark:text-gray-300 mb-4 text-lg">
-                Soy un desarrollador full stack apasionado por la tecnología y la innovación. 
+                Soy un desarrollador full stack apasionado por la tecnología y la innovación.
                 Me especializo en crear aplicaciones web modernas, escalables y centradas en el usuario.
               </p>
               <p className="text-gray-700 dark:text-gray-300 mb-4 text-lg">
-                Con experiencia en el desarrollo de soluciones complejas, desde aplicaciones web hasta 
+                Con experiencia en el desarrollo de soluciones complejas, desde aplicaciones web hasta
                 sistemas embebidos e IoT, siempre busco la excelencia técnica y la innovación en cada proyecto.
               </p>
               <p className="text-gray-700 dark:text-gray-300 mb-6 text-lg">
-                Estoy abierto a nuevas oportunidades laborales que me permitan seguir creciendo profesionalmente 
+                Estoy abierto a nuevas oportunidades laborales que me permitan seguir creciendo profesionalmente
                 y aplicar mis conocimientos en desarrollo full stack, metodologías ágiles y tecnologías emergentes.
               </p>
 

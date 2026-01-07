@@ -99,7 +99,7 @@ projects_data = [
     {
         "id": 1,
         "nombre": "Gestión Inventario",
-        "descripcion": "Sistema completo de gestión de inventario con dashboard interactivo, control de stock en tiempo real, gestión de trabajadores, equipos y obras. Plataforma integral que permite monitorear el inventario, crear equipos de trabajo, gestionar obras y mantener un historial detallado de todas las operaciones.",
+        "descripcion": "Plataforma integral que permite monitorear el inventario, crear equipos de trabajo, gestionar obras y mantener un historial detallado de todas las operaciones.",
         "fecha": "Enero 2026",
         "estado": "Completado",
         "tecnologias": ["React", "Node.js", "FastAPI", "MongoDB", "Tailwind CSS", "Express.js"],
@@ -109,7 +109,10 @@ projects_data = [
             "/proyecto2/trabajadores.png",
             "/proyecto2/crear equipos.png",
             "/proyecto2/historial trabajadores.png",
-            "/proyecto2/grestion inventario dashboard.png"
+            "/proyecto2/grestion inventario dashboard.png",
+            "/proyecto2/login.png",
+            "/proyecto2/s.png",
+            "/proyecto2/tr.png"
         ],
         "caracteristicas": [
             "Dashboard interactivo con métricas en tiempo real",
@@ -134,7 +137,11 @@ projects_data = [
             "/proyecto1/items.png",
             "/proyecto1/proveedores.png",
             "/proyecto1/eva guardadas.png",
-            "/proyecto1/pdf firmados.png"
+            "/proyecto1/pdf firmados.png",
+            "/proyecto1/1.png",
+            "/proyecto1/2.png",
+            "/proyecto1/3.png",
+            "/proyecto1/4.png"
         ],
         "caracteristicas": [
             "Formulario de evaluación de proveedores",

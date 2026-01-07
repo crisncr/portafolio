@@ -53,7 +53,7 @@ const Projects = () => {
 
   const nextImage = () => {
     if (selectedProject && selectedProject.imagenes) {
-      setCurrentImageIndex((prev) => 
+      setCurrentImageIndex((prev) =>
         prev === selectedProject.imagenes.length - 1 ? 0 : prev + 1
       )
     }
@@ -61,7 +61,7 @@ const Projects = () => {
 
   const prevImage = () => {
     if (selectedProject && selectedProject.imagenes) {
-      setCurrentImageIndex((prev) => 
+      setCurrentImageIndex((prev) =>
         prev === 0 ? selectedProject.imagenes.length - 1 : prev - 1
       )
     }
@@ -81,9 +81,9 @@ const Projects = () => {
 
   return (
     <section id="proyectos" className="py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 max-w-[98%]">
         <h2 className="section-title">Proyectos Destacados</h2>
-        
+
         <div className="space-y-24">
           {projects.map((project, projectIndex) => (
             <motion.div
@@ -92,26 +92,27 @@ const Projects = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: projectIndex * 0.2 }}
-              className="max-w-7xl mx-auto"
+              className="w-full"
             >
-              <div className={`flex flex-col ${projectIndex % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-12 items-start`}>
-                {/* Información del proyecto */}
-                <div className="flex-1 lg:max-w-lg">
-                  <h3 className="text-4xl md:text-5xl font-bold text-primary-800 dark:text-white mb-6 font-sans leading-tight">
+              <div className="flex flex-col lg:flex-row gap-12 items-start">
+                <div className="flex-[1.1] lg:max-w-none">
+                  <h3 className="text-3xl md:text-4xl font-bold text-primary-800 dark:text-white mb-6 font-sans leading-tight">
                     {project.nombre}
                   </h3>
-                  
+
                   <p className="text-gray-700 dark:text-gray-300 text-lg mb-8 leading-relaxed font-sans">
                     {project.descripcion}
                   </p>
 
+
+
                   {/* Tecnologías */}
                   <div className="mb-8">
-                    <div className="flex flex-wrap gap-3">
+                    <div className="flex flex-wrap gap-2">
                       {project.tecnologias.map((tech, techIndex) => (
                         <span
                           key={techIndex}
-                          className={`px-4 py-2 rounded-lg text-sm font-semibold font-sans ${getTechColor(techIndex)}`}
+                          className={`px-3 py-1.5 rounded-lg text-xs font-semibold font-sans ${getTechColor(techIndex)}`}
                         >
                           {tech}
                         </span>
@@ -121,13 +122,13 @@ const Projects = () => {
 
                   {/* Características principales */}
                   <div>
-                    <h4 className="text-xl font-bold text-primary-800 mb-4 font-sans">
+                    <h4 className="text-lg font-bold text-primary-800 mb-3 font-sans">
                       Características principales:
                     </h4>
-                    <ul className="space-y-2.5 text-gray-700 font-sans">
+                    <ul className="space-y-1.5 text-gray-700 font-sans text-sm md:text-base">
                       {project.caracteristicas.map((feature, featureIndex) => (
                         <li key={featureIndex} className="flex items-start">
-                          <span className="text-purple-600 mr-3 font-bold text-lg leading-none">•</span>
+                          <span className="text-purple-600 mr-2 font-bold text-base leading-none">•</span>
                           <span className="leading-relaxed">{feature}</span>
                         </li>
                       ))}
@@ -136,90 +137,82 @@ const Projects = () => {
                 </div>
 
                 {/* Imágenes del proyecto con diseño mejorado */}
-                <div className="flex-1 w-full lg:max-w-2xl">
+                <div className="flex-[1.4] w-full">
                   {project.imagenes && project.imagenes.length > 0 ? (
-                    <div className="relative">
-                      {/* Grid principal con diseño más llamativo */}
-                      <div className="grid grid-cols-2 gap-4">
-                        {project.imagenes.map((img, imgIndex) => {
-                          // En Vite, los archivos en public se sirven desde la raíz
-                          // Asegurar que la ruta comience con /
-                          const imagePath = img.startsWith('/') ? img : `/${img}`
-                          // Codificar espacios en la URL (reemplazar espacios con %20)
-                          // Mantener las barras / intactas
-                          const encodedImg = imagePath.replace(/ /g, '%20')
-                          console.log('Cargando imagen - Original:', img, 'Path:', imagePath, 'Encoded:', encodedImg)
-                          // Layout más variado y llamativo
-                          const isLarge = imgIndex === 0 || imgIndex === 3
-                          const spanClass = imgIndex === 0 ? 'col-span-2' : ''
-                          
-                          return (
-                            <motion.div
-                              key={imgIndex}
-                              initial={{ opacity: 0, scale: 0.95, y: 20 }}
-                              whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                              viewport={{ once: true }}
-                              transition={{ duration: 0.5, delay: imgIndex * 0.1 }}
-                              className={`${spanClass} group relative overflow-hidden rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-300 cursor-pointer`}
-                              onClick={() => openImageModal(project, imgIndex)}
-                              style={{ 
-                                transform: imgIndex % 3 === 1 ? 'rotate(-1deg)' : imgIndex % 3 === 2 ? 'rotate(1deg)' : 'rotate(0deg)',
-                                lineHeight: 0,
-                                margin: 0,
-                                padding: 0
-                              }}
-                            >
-                              {/* Contenedor de imagen - usa aspect-ratio para evitar espacios blancos */}
-                              <div className="relative w-full overflow-hidden rounded-2xl" style={{ 
-                                lineHeight: 0, 
-                                backgroundColor: 'transparent',
-                                display: 'block',
-                                margin: 0,
-                                padding: 0,
-                                fontSize: 0,
-                                aspectRatio: '16/9'
-                              }}>
-                                <img
-                                  src={encodedImg}
-                                  alt={`${project.nombre} - Imagen ${imgIndex + 1}`}
-                                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 block"
-                                  style={{ 
-                                    objectFit: 'cover',
-                                    display: 'block',
-                                    width: '100%',
-                                    height: '100%',
-                                    margin: 0,
-                                    padding: 0,
-                                    verticalAlign: 'top',
-                                    lineHeight: 0,
-                                    fontSize: 0
-                                  }}
-                                  onError={(e) => {
-                                    console.error('Error cargando imagen:', encodedImg, 'Ruta original:', img)
-                                    e.target.onerror = null
-                                    e.target.style.display = 'none'
-                                  }}
-                                  onLoad={() => {
-                                    console.log('Imagen cargada exitosamente:', encodedImg)
-                                  }}
-                                />
-                                
-                                {/* Overlay con gradiente solo en hover */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
-                                  <div className="text-center">
-                                    <span className="text-white text-sm font-bold font-sans px-4 py-2 bg-purple-600/90 rounded-full backdrop-blur-sm shadow-lg">
-                                      Ver imagen
-                                    </span>
-                                  </div>
-                                </div>
-                                
-                                {/* Borde sutil */}
-                                <div className="absolute inset-0 border-2 border-gray-200/50 rounded-2xl pointer-events-none group-hover:border-purple-300/50 transition-colors"></div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                      {project.imagenes.slice(0, 4).map((img, imgIndex) => {
+                        const imagePath = img.startsWith('/') ? img : `/${img}`
+                        const encodedImg = imagePath.replace(/ /g, '%20')
+
+                        return (
+                          <motion.div
+                            key={imgIndex}
+                            initial={{ opacity: 0, scale: 0.9, y: 30 }}
+                            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, type: "spring", bounce: 0.3, delay: imgIndex * 0.1 }}
+                            whileHover={{ y: -12, scale: 1.02 }}
+                            className="group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer bg-gray-900 border border-white/10"
+                            onClick={() => openImageModal(project, imgIndex)}
+                            style={{
+                              lineHeight: 0,
+                              margin: 0,
+                              padding: 0,
+                              boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)' // Base deep shadow
+                            }}
+                          >
+                            {/* Colorful Glow Effect on Hover */}
+                            <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-blue-600 opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500" />
+
+                            <div className="relative w-full aspect-video overflow-hidden z-10" style={{
+                              lineHeight: 0,
+                              backgroundColor: 'transparent',
+                              display: 'block',
+                              margin: 0,
+                              padding: 0,
+                              fontSize: 0,
+                              aspectRatio: '16/9'
+                            }}>
+                              <img
+                                src={encodedImg}
+                                alt={`${project.nombre} - Imagen ${imgIndex + 1}`}
+                                className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-in-out block"
+                                style={{
+                                  objectFit: 'cover',
+                                  display: 'block',
+                                  width: '100%',
+                                  height: '100%',
+                                  margin: 0,
+                                  padding: 0,
+                                  verticalAlign: 'top',
+                                  lineHeight: 0,
+                                  fontSize: 0
+                                }}
+                                onError={(e) => {
+                                  console.error('Error cargando imagen:', encodedImg, 'Ruta original:', img)
+                                  e.target.onerror = null
+                                  e.target.style.display = 'none'
+                                }}
+                              />
+
+                              {/* Ultra-Modern Minimalist Glass Overlay */}
+                              <div className="absolute inset-0 bg-black/20 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center">
+                                <motion.div
+                                  initial={{ scale: 0.5, opacity: 0, rotate: -45 }}
+                                  whileInView={{ scale: 1, opacity: 1, rotate: 0 }}
+                                  whileHover={{ scale: 1.1, rotate: 0 }}
+                                  className="bg-white/10 border border-white/20 backdrop-blur-xl p-5 rounded-full text-white shadow-2xl ring-1 ring-white/30"
+                                >
+                                  <svg className="w-8 h-8 drop-shadow-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                  </svg>
+                                </motion.div>
                               </div>
-                            </motion.div>
-                          )
-                        })}
-                      </div>
+                            </div>
+                          </motion.div>
+                        )
+                      })}
                     </div>
                   ) : (
                     <div className="text-center text-gray-500 dark:text-gray-400">
@@ -228,6 +221,84 @@ const Projects = () => {
                   )}
                 </div>
               </div>
+
+              {/* Resto de imágenes (Grid full width) */}
+              {project.imagenes && project.imagenes.length > 4 && (
+                <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-6">
+                  {project.imagenes.slice(4).map((img, imgIndex) => {
+                    const imagePath = img.startsWith('/') ? img : `/${img}`
+                    const encodedImg = imagePath.replace(/ /g, '%20')
+                    const actualIndex = imgIndex + 4
+
+                    return (
+                      <motion.div
+                        key={actualIndex}
+                        initial={{ opacity: 0, scale: 0.9, y: 30 }}
+                        whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, type: "spring", bounce: 0.3, delay: imgIndex * 0.1 }}
+                        whileHover={{ y: -12, scale: 1.02 }}
+                        className="group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer bg-gray-900 border border-white/10"
+                        onClick={() => openImageModal(project, actualIndex)}
+                        style={{
+                          lineHeight: 0,
+                          margin: 0,
+                          padding: 0,
+                          boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)'
+                        }}
+                      >
+                        <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-blue-600 opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500" />
+
+                        <div className="relative w-full aspect-video overflow-hidden z-10" style={{
+                          lineHeight: 0,
+                          backgroundColor: 'transparent',
+                          display: 'block',
+                          margin: 0,
+                          padding: 0,
+                          fontSize: 0,
+                          aspectRatio: '16/9'
+                        }}>
+                          <img
+                            src={encodedImg}
+                            alt={`${project.nombre} - Imagen ${actualIndex + 1}`}
+                            className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-in-out block"
+                            style={{
+                              objectFit: 'cover',
+                              display: 'block',
+                              width: '100%',
+                              height: '100%',
+                              margin: 0,
+                              padding: 0,
+                              verticalAlign: 'top',
+                              lineHeight: 0,
+                              fontSize: 0
+                            }}
+                            onError={(e) => {
+                              e.target.onerror = null
+                              e.target.style.display = 'none'
+                            }}
+                          />
+
+                          <div className="absolute inset-0 bg-black/20 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center">
+                            <motion.div
+                              initial={{ scale: 0.5, opacity: 0, rotate: -45 }}
+                              whileInView={{ scale: 1, opacity: 1, rotate: 0 }}
+                              whileHover={{ scale: 1.1, rotate: 0 }}
+                              className="bg-white/10 border border-white/20 backdrop-blur-xl p-5 rounded-full text-white shadow-2xl ring-1 ring-white/30"
+                            >
+                              <svg className="w-8 h-8 drop-shadow-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                              </svg>
+                            </motion.div>
+                          </div>
+                        </div>
+                      </motion.div>
+                    )
+                  })}
+                </div>
+              )}
+
             </motion.div>
           ))}
         </div>
@@ -277,7 +348,7 @@ const Projects = () => {
                     })()}
                     alt={`${selectedProject.nombre} - Imagen ${currentImageIndex + 1}`}
                     className="w-full h-auto max-h-[85vh] object-contain mx-auto block rounded-lg"
-                    style={{ 
+                    style={{
                       display: 'block',
                       backgroundColor: 'transparent'
                     }}
@@ -334,7 +405,7 @@ const Projects = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    </section>
+    </section >
   )
 }
 
