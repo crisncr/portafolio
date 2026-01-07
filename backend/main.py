@@ -156,6 +156,7 @@ projects_data = [
 ]
 
 @app.get("/")
+@app.head("/")
 async def root():
     return {"message": "Portafolio API"}
 
