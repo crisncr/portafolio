@@ -64,6 +64,9 @@ const Timeline = () => {
                   transition={{ duration: 0.5, delay: index * 0.2 }}
                   className="relative mb-8 pl-24 md:pl-40"
                 >
+                  {/* Línea vertical desde el cuadrado */}
+                  <div className="block absolute left-10 md:left-16 top-16 bottom-0 w-0.5 bg-gray-300 dark:bg-gray-600"></div>
+
                   {/* Cuadrado con fecha en la línea - Izquierda */}
                   <div className="absolute left-0 top-0 w-20 md:w-32">
                     <div className="bg-white dark:bg-gray-700 rounded-lg shadow-md border-2 border-primary-600 dark:border-primary-400 p-2 md:p-3 text-center">
@@ -75,9 +78,6 @@ const Timeline = () => {
                       </p>
                     </div>
                   </div>
-
-                  {/* Línea vertical desde el cuadrado */}
-                  <div className="block absolute left-10 md:left-16 top-16 bottom-0 w-0.5 bg-gray-300 dark:bg-gray-600"></div>
 
                   {/* Card del proyecto */}
                   <div className="card dark:bg-gray-700 dark:border-gray-600">

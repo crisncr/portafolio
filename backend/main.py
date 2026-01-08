@@ -152,6 +152,34 @@ projects_data = [
             "Generación y firma digital de PDFs",
             "Panel de administración y reportes"
         ]
+    },
+    {
+        "id": 3,
+        "nombre": "Sistema Gestión Excedentes Aura",
+        "descripcion": "Plataforma especializada para el control y gestión de inventario de excedentes de bodega. Permite llevar un registro detallado de materiales sobrantes, gestionar entradas y salidas, categorizar productos y mantener la trazabilidad de los recursos para optimizar la gestión de bodega.",
+        "fecha": "Enero 2026",
+        "estado": "En Desarrollo",
+        "tecnologias": ["React", "FastAPI", "PostgreSQL", "Tailwind CSS", "Docker", "Recharts"],
+        "imagenes": [
+            "/Proyecto3/Captura de pantalla 2026-01-08 145322.png",
+            "/Proyecto3/Captura de pantalla 2026-01-08 150029.png",
+            "/Proyecto3/Captura de pantalla 2026-01-08 150308.png",
+            "/Proyecto3/Captura de pantalla 2026-01-08 150403.png",
+            "/Proyecto3/Captura de pantalla 2026-01-08 150438.png",
+            "/Proyecto3/Captura de pantalla 2026-01-08 150459.png",
+            "/Proyecto3/Captura de pantalla 2026-01-08 151704.png",
+            "/Proyecto3/Captura de pantalla 2026-01-08 151944.png",
+            "/Proyecto3/Captura de pantalla 2026-01-08 152042.png"
+        ],
+        "caracteristicas": [
+            "Control de stock de excedentes en tiempo real",
+            "Gestión de entradas y salidas de bodega",
+            "Categorización avanzada de materiales",
+            "Historial de movimientos y trazabilidad",
+            "Dashboard con métricas de ocupación y rotación",
+            "Interfaz optimizada para operación rápida",
+            "Reportes de inventario exportables"
+        ]
     }
 ]
 
