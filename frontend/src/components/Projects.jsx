@@ -321,20 +321,20 @@ const Projects = () => {
               className="relative max-w-7xl w-full max-h-[90vh]"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Botón cerrar mejorado */}
+              {/* Botón cerrar mejorado - Más pequeño en móvil y mejor posicionado */}
               <button
                 onClick={closeModal}
-                className="absolute top-4 right-4 z-10 text-white hover:text-gray-300 transition-colors bg-black/80 hover:bg-black rounded-full p-3 shadow-2xl backdrop-blur-sm"
+                className="absolute top-2 right-2 md:top-4 md:right-4 z-50 text-white hover:text-gray-300 transition-colors bg-black/60 md:bg-black/80 hover:bg-black rounded-full p-2 md:p-3 shadow-2xl backdrop-blur-sm"
                 aria-label="Cerrar"
               >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
 
-              {/* Imagen actual sin fondo oscuro visible */}
+              {/* Imagen actual con padding responsivo */}
               <div className="relative bg-transparent rounded-2xl overflow-hidden shadow-2xl">
-                <div className="bg-white rounded-2xl p-4">
+                <div className="bg-white rounded-2xl p-2 md:p-4">
                   <motion.img
                     key={currentImageIndex}
                     initial={{ opacity: 0, x: 100 }}
@@ -347,7 +347,7 @@ const Projects = () => {
                       return imagePath.replace(/ /g, '%20')
                     })()}
                     alt={`${selectedProject.nombre} - Imagen ${currentImageIndex + 1}`}
-                    className="w-full h-auto max-h-[85vh] object-contain mx-auto block rounded-lg"
+                    className="w-full h-auto max-h-[75vh] md:max-h-[85vh] object-contain mx-auto block rounded-lg"
                     style={{
                       display: 'block',
                       backgroundColor: 'transparent'
@@ -359,7 +359,7 @@ const Projects = () => {
                   />
                 </div>
 
-                {/* Botones de navegación mejorados */}
+                {/* Botones de navegación responsivos */}
                 {selectedProject.imagenes.length > 1 && (
                   <>
                     <button
@@ -367,10 +367,10 @@ const Projects = () => {
                         e.stopPropagation()
                         prevImage()
                       }}
-                      className="absolute left-6 top-1/2 -translate-y-1/2 bg-black/80 hover:bg-black text-white rounded-full p-4 transition-all z-10 shadow-2xl backdrop-blur-sm hover:scale-110"
+                      className="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 bg-black/60 md:bg-black/80 hover:bg-black text-white rounded-full p-2 md:p-4 transition-all z-10 shadow-2xl backdrop-blur-sm hover:scale-110"
                       aria-label="Imagen anterior"
                     >
-                      <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-5 h-5 md:w-7 md:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
                       </svg>
                     </button>
@@ -379,18 +379,18 @@ const Projects = () => {
                         e.stopPropagation()
                         nextImage()
                       }}
-                      className="absolute right-6 top-1/2 -translate-y-1/2 bg-black/80 hover:bg-black text-white rounded-full p-4 transition-all z-10 shadow-2xl backdrop-blur-sm hover:scale-110"
+                      className="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 bg-black/60 md:bg-black/80 hover:bg-black text-white rounded-full p-2 md:p-4 transition-all z-10 shadow-2xl backdrop-blur-sm hover:scale-110"
                       aria-label="Siguiente imagen"
                     >
-                      <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-5 h-5 md:w-7 md:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
                       </svg>
                     </button>
                   </>
                 )}
 
-                {/* Indicador de imagen actual mejorado */}
-                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-black/80 text-white px-6 py-3 rounded-full text-sm font-bold font-sans backdrop-blur-md shadow-2xl border border-white/20">
+                {/* Indicador de imagen responsivo */}
+                <div className="absolute bottom-4 md:bottom-6 left-1/2 -translate-x-1/2 bg-black/60 md:bg-black/80 text-white px-4 md:px-6 py-2 md:py-3 rounded-full text-xs md:text-sm font-bold font-sans backdrop-blur-md shadow-2xl border border-white/20">
                   {currentImageIndex + 1} / {selectedProject.imagenes.length}
                 </div>
               </div>
