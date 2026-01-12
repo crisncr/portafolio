@@ -41,13 +41,17 @@ const Projects = () => {
 
     if (selectedProject) {
       document.addEventListener('keydown', handleEscape)
-      // Prevenir scroll del body cuando el modal está abierto
+      // Prevenir scroll del body y html cuando el modal está abierto
       document.body.style.overflow = 'hidden'
+      document.documentElement.style.overflow = 'hidden'
+      document.body.style.touchAction = 'none'
     }
 
     return () => {
       document.removeEventListener('keydown', handleEscape)
       document.body.style.overflow = 'unset'
+      document.documentElement.style.overflow = 'unset'
+      document.body.style.touchAction = 'unset'
     }
   }, [selectedProject])
 
@@ -311,8 +315,9 @@ const Projects = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4 backdrop-blur-sm"
+            className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4 backdrop-blur-sm touch-none"
             onClick={closeModal}
+            style={{ height: '100dvh' }}
           >
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
