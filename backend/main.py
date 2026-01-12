@@ -99,10 +99,14 @@ projects_data = [
     {
         "id": 1,
         "nombre": "Gestión Inventario",
-        "descripcion": "Plataforma integral que permite monitorear el inventario, crear equipos de trabajo, gestionar obras y mantener un historial detallado de todas las operaciones.",
+        "descripcion": "Plataforma integral de gestión disponible en web y dispositivos móviles para la administración de inventario en tiempo real. Utiliza una arquitectura por capas con un potente backend en FastAPI, integración con inteligencia artificial (Gemini) y una aplicación móvil nativa con escaneo QR para operaciones en terreno.",
         "fecha": "Enero 2026",
         "estado": "Completado",
-        "tecnologias": ["React", "Node.js", "FastAPI", "MongoDB", "Tailwind CSS", "Express.js"],
+        "tecnologias": [
+            "FastAPI", "React", "React Native", "PostgreSQL", 
+            "Supabase", "TypeScript", "Gemini AI", 
+            "Tailwind CSS", "Expo", "QR Scanning"
+        ],
         "imagenes": [
             "/proyecto2/dashboard.png",
             "/proyecto2/obras.png",
@@ -115,22 +119,27 @@ projects_data = [
             "/proyecto2/tr.png"
         ],
         "caracteristicas": [
-            "Dashboard interactivo con métricas en tiempo real",
-            "Gestión completa de inventario y stock",
-            "Control de trabajadores y equipos",
-            "Gestión de obras y proyectos",
-            "Historial detallado de operaciones",
-            "Sistema de alertas y notificaciones",
-            "Interfaz responsive y moderna"
+            "Arquitectura por capas (Backend, Web, Mobile) altamente escalable",
+            "Gestión de inventario en tiempo real con sincronización instantánea",
+            "App móvil nativa (iOS/Android) con escaneo de códigos QR",
+            "Procesamiento inteligente de datos mediante Google Gemini AI",
+            "Base de datos robusta con PostgreSQL y servicios de Supabase",
+            "Interfaz web moderna construida con React, Vite y TypeScript",
+            "Control de acceso y seguridad integrada mediante Supabase Auth",
+            "Operaciones en terreno optimizadas mediante escaneo rápido de productos"
         ]
     },
     {
         "id": 2,
         "nombre": "Evaluación de Proveedor",
-        "descripcion": "Sistema de formulario de evaluación de proveedores con gestión completa de evaluadores, items de evaluación, proveedores y generación de reportes. Permite crear y gestionar evaluaciones, asignar evaluadores, guardar encuestas y generar PDFs firmados digitalmente.",
+        "descripcion": "Aplicación web serverless y liviana enfocada en la evaluación de proveedores. Diseñada con un enfoque 'frontend-only', utiliza servicios en la nube para gestionar datos y seguridad, permitiendo una operación ágil sin necesidad de servidores tradicionales, ideal para despliegues rápidos y de bajo mantenimiento.",
         "fecha": "Diciembre 2025",
         "estado": "Completado",
-        "tecnologias": ["React", "Node.js", "FastAPI", "MySQL", "PDF Generation", "JWT"],
+        "tecnologias": [
+            "HTML5", "CSS3", "JavaScript (Vanilla)", 
+            "Supabase", "PostgreSQL", "SheetJS (XLSX)", 
+            "jsPDF", "Web Crypto API", "SHA-256"
+        ],
         "imagenes": [
             "/proyecto1/general encuesta.png",
             "/proyecto1/evaluadores.png",
@@ -144,13 +153,14 @@ projects_data = [
             "/proyecto1/4.png"
         ],
         "caracteristicas": [
-            "Formulario de evaluación de proveedores",
-            "Gestión de evaluadores y asignaciones",
-            "Control de items y criterios de evaluación",
-            "Gestión completa de proveedores",
-            "Almacenamiento de evaluaciones guardadas",
-            "Generación y firma digital de PDFs",
-            "Panel de administración y reportes"
+            "Arquitectura Serverless y Frontend-only para máxima rapidez y bajo costo",
+            "Gestión integral de proveedores, evaluadores y asignaciones mediante Supabase",
+            "Generación dinámica de reportes en PDF y exportación a Excel (XLSX) desde el navegador",
+            "Seguridad avanzada con hashing SHA-256 mediante Web Crypto API",
+            "Interfaz responsiva construida con CSS moderno (Flexbox y Variables)",
+            "Base de datos PostgreSQL sincronizada en tiempo real",
+            "Despliegue optimizado para plataformas como Netlify y GitHub Pages",
+            "Diseño ligero y eficiente sin dependencias de frameworks externos"
         ]
     },
     {
