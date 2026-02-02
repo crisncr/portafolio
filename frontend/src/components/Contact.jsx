@@ -106,9 +106,9 @@ const Contact = () => {
         })
       }
     } catch (error) {
-      const errorMessage = error.response?.data?.message || 
-                          error.message || 
-                          'Error al enviar el mensaje. Por favor, intenta nuevamente.'
+      const errorMessage = error.response?.data?.message ||
+        error.message ||
+        'Error al enviar el mensaje. Por favor, intenta nuevamente.'
       setSubmitStatus({
         type: 'error',
         message: errorMessage,
@@ -178,7 +178,7 @@ const Contact = () => {
               ¡Trabajemos juntos!
             </h3>
             <p className="text-gray-700 dark:text-gray-300 mb-6">
-              ¿Tienes un proyecto en mente? Me encantaría escuchar sobre él. 
+              ¿Tienes un proyecto en mente? Me encantaría escuchar sobre él.
               Estoy siempre abierto a nuevas oportunidades y colaboraciones interesantes.
             </p>
 
@@ -208,7 +208,7 @@ const Contact = () => {
                 <h4 className="text-lg font-semibold text-primary-800 dark:text-white mb-4">
                   Documentos
                 </h4>
-                
+
                 {/* CV */}
                 <div className="mb-4">
                   <div className="flex items-center gap-3 mb-3">
@@ -308,11 +308,10 @@ const Contact = () => {
               </div>
               {submitStatus && (
                 <div
-                  className={`p-3 rounded-lg ${
-                    submitStatus.type === 'success'
+                  className={`p-3 rounded-lg ${submitStatus.type === 'success'
                       ? 'bg-green-100 text-green-700'
                       : 'bg-red-100 text-red-700'
-                  }`}
+                    }`}
                 >
                   {submitStatus.message}
                 </div>
@@ -355,7 +354,7 @@ const Contact = () => {
                   <li>• Estimación de tiempo y costo</li>
                 </ul>
                 <a
-                  href="https://calendly.com/cristocuevas5/30min"
+                  href="https://calendly.com/cuevasn050/30min"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-primary w-full text-sm inline-block text-center"
@@ -376,7 +375,7 @@ const Contact = () => {
                   <li>• Definición de entregables</li>
                 </ul>
                 <a
-                  href="https://calendly.com/cristocuevas5/new-meeting"
+                  href="https://calendly.com/cuevasn050/reunion-de-proyecto"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-secondary w-full text-sm inline-block text-center"
