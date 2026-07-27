@@ -19,4 +19,10 @@ export default [
     thumbnail: "/Proyecto3/Captura de pantalla 2026-01-08 145322.png",
     description: "Sistema SPA integrado con JD Edwards",
   },
+  {
+    title: "DriveSync Aura",
+    slug: "drivesync",
+    thumbnail: "/proyecto4/drivesync-1.png",
+    description: "Portal web de sincronización de archivos",
+  },
 ] as const satisfies ProjectPreview[];
