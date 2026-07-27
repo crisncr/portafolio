@@ -14,6 +14,7 @@ export default {
         src: "/proyecto4/drivesync-1.png",
         alt: "DriveSync Aura",
         caption: "Vista Principal",
+        contain: true,
       },
     },
     {
@@ -23,6 +24,7 @@ export default {
         src: "/proyecto4/drivesync-2.png",
         alt: "DriveSync Aura Funcionalidad",
         caption: "Gestión de Archivos",
+        contain: true,
       },
     },
     {
@@ -32,6 +34,7 @@ export default {
         src: "/proyecto4/drivesync-3.png",
         alt: "DriveSync Aura",
         caption: "Interfaz y Diseño",
+        contain: true,
       },
     },
     {
@@ -41,6 +44,7 @@ export default {
         src: "/proyecto4/drivesync-4.png",
         alt: "DriveSync Aura",
         caption: "Detalle del Proyecto",
+        contain: true,
       },
     }
   ],

@@ -14,6 +14,7 @@ export interface Props {
   alt?: string;
   caption?: string;
   index: number;
+  contain?: boolean;
 }
 
 const props = defineProps<Props>();
@@ -21,6 +22,7 @@ const props = defineProps<Props>();
 const wrapperClasses = computed(() => {
   return {
     "project-media": true,
+    "project-media-contain": props.contain,
   };
 });
 
@@ -61,7 +63,7 @@ onMounted(async () => {
         :alt="props.alt"
         loading="lazy"
         fetchpriority="high"
-        class="project-media-image"
+        :class="['project-media-image', { 'project-media-image-contain': props.contain }]"
         ref="mediaRef"
       />
       <video
@@ -95,6 +97,11 @@ onMounted(async () => {
   justify-self: center;
   position: relative;
   aspect-ratio: 16 / 9;
+
+  &-contain {
+    aspect-ratio: auto;
+    height: auto;
+  }
 
   @include mixins.mq("md") {
     grid-column: 2 / 12;
@@ -158,6 +165,11 @@ onMounted(async () => {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    
+    &-contain {
+      object-fit: contain;
+      height: auto;
+    }
   }
 
   &-video {
