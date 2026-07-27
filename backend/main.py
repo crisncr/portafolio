@@ -11,41 +11,10 @@ import urllib.parse
 import json
 
 # Cargar variables de entorno
-# Especificar la ruta del archivo .env explícitamente
-env_path = os.path.join(os.path.dirname(__file__), '.env')
-print(f"🔍 Buscando archivo .env en: {env_path}")
-print(f"🔍 ¿Existe el archivo?: {os.path.exists(env_path)}")
-
-# Intentar cargar el archivo .env
-result = load_dotenv(dotenv_path=env_path)
-print(f"🔍 Resultado de load_dotenv: {result}")
-
-# Leer directamente del archivo para debug
-if os.path.exists(env_path):
-    with open(env_path, 'r', encoding='utf-8') as f:
-        content = f.read()
-        print(f"🔍 Contenido del archivo .env (primeros 50 chars): {content[:50]}")
+load_dotenv()
 
 # Configurar Resend
 resend.api_key = os.getenv("RESEND_API_KEY")
-
-# Debug: Verificar que la API key se cargó (solo mostrar los primeros caracteres por seguridad)
-if resend.api_key:
-    print(f"✅ Resend API key cargada correctamente: {resend.api_key[:10]}...")
-else:
-    print("❌ ERROR: No se pudo cargar RESEND_API_KEY del archivo .env")
-    # Intentar leer directamente
-    try:
-        with open(env_path, 'r', encoding='utf-8') as f:
-            for line in f:
-                if line.startswith('RESEND_API_KEY='):
-                    key_value = line.strip().split('=', 1)
-                    if len(key_value) == 2:
-                        resend.api_key = key_value[1]
-                        print(f"✅ API key cargada manualmente: {resend.api_key[:10]}...")
-                        break
-    except Exception as e:
-        print(f"❌ Error al leer archivo manualmente: {e}")
 
 app = FastAPI(title="Portafolio API", version="1.0.0")
 
