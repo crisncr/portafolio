@@ -84,13 +84,16 @@ const handleSubmit = async (e: Event) => {
       let errorData = { message: "Error al enviar el mensaje" };
       try {
         errorData = await response.json();
-      } catch (err) {}
+      } catch (err) {
+        errorData.message = `Error HTTP ${response.status} del backend. Revisa VITE_API_URL.`;
+      }
       submitStatus.value = { type: "error", message: errorData.message || "Error al enviar el mensaje" };
       // Reiniciar turnstile en caso de error
       if (window.turnstile) window.turnstile.reset();
     }
   } catch (error) {
-    submitStatus.value = { type: "error", message: "Error de conexión al enviar el mensaje" };
+    const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+    submitStatus.value = { type: "error", message: `Fallo de conexión hacia ${API_URL}. ¿Está encendido el backend?` };
     if (window.turnstile) window.turnstile.reset();
   } finally {
     isSubmitting.value = false;
