@@ -3,7 +3,7 @@ import type { ProjectContent } from "../../types";
 export default {
   title: "DriveSync Aura",
   theme: "dark",
-  tags: ["html5", "tailwind", "firebase", "netlify", "stitch"],
+  tags: ["html", "tailwind", "firebase", "netlify", "stitch"],
   description:
     "Portal web para la sincronización de archivos (drivesync.aura.cl).<br/><br/>Desarrollo de la interfaz estática responsiva con soporte para Dark Mode, gestión de sistema de diseño (Design System) con Stitch y backend Serverless mediante Firebase. Alojado y desplegado en Netlify.",
   components: [

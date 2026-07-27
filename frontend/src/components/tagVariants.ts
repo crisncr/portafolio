@@ -15,7 +15,11 @@ export type TagVariant =
   | "glsl"
   | "python"
   | "fastapi"
-  | "supabase";
+  | "supabase"
+  | "tailwind"
+  | "firebase"
+  | "netlify"
+  | "stitch";
 
 export const tagLabels = {
   three: "Three.js",
@@ -34,5 +38,9 @@ export const tagLabels = {
   glsl: "GLSL",
   python: "Python",
   fastapi: "FastAPI",
-  supabase: "Supabase"
+  supabase: "Supabase",
+  tailwind: "Tailwind CSS",
+  firebase: "Firebase",
+  netlify: "Netlify",
+  stitch: "Stitch"
 } as const satisfies Record<TagVariant, string>;
