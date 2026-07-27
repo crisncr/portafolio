@@ -111,7 +111,7 @@ onMounted(() => {
     const renderTurnstile = () => {
       if (window.turnstile && document.getElementById('turnstile-widget')) {
         window.turnstile.render('#turnstile-widget', {
-          sitekey: '0x4AAAAAAA_9HRe6L7ekre-d',
+          sitekey: '0x4AAAAAAD_WHKc5iJmkre-d',
           theme: 'auto'
         });
       }
