@@ -7,7 +7,6 @@ import { onMounted, onUnmounted, ref } from "vue";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ButtonRound from "../../../components/ButtonRound.vue";
 import { t } from "../../../i18n/utils/translate";
-import { social } from "../../../content/social";
 import Plus from "../../../components/icons/Plus.vue";
 
 import type { ProjectPreview } from "../../../content/types";
