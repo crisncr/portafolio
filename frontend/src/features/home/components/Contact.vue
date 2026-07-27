@@ -225,6 +225,7 @@ onUnmounted(() => {
 
   &-content {
     position: relative;
+    z-index: 10;
     padding-top: var(--space-md);
     grid-column: 1 / 13;
     display: flex;

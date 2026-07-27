@@ -168,6 +168,32 @@ projects_data = [
             "Seguridad avanzada mediante Supabase Auth y variables de entorno",
             "Automatización de procesos operativos mediante scripts PowerShell"
         ]
+    },
+    {
+        "id": 4,
+        "nombre": "DriveSync Aura",
+        "descripcion": "Portal web para la sincronización y gestión de archivos (drivesync.aura.cl). Desarrollado con una interfaz estática responsiva, integra un sistema de diseño con Stitch y soporte para Dark Mode. Utiliza Firebase como backend serverless para la gestión de usuarios y archivos, integrándose de forma segura mediante Google Cloud Console.",
+        "fecha": "Julio 2026",
+        "estado": "Completado",
+        "tecnologias": [
+            "HTML5", "Tailwind CSS", "Stitch", "Firebase", 
+            "Google Cloud", "Google Drive API", "Netlify", 
+            "DNS Management", "Google Search Console"
+        ],
+        "imagenes": [
+            "/proyecto4/drivesync-1.png",
+            "/proyecto4/drivesync-2.png",
+            "/proyecto4/drivesync-3.png",
+            "/proyecto4/drivesync-4.png"
+        ],
+        "caracteristicas": [
+            "Interfaz estática responsiva con soporte nativo para Dark Mode",
+            "Implementación de Design System con Stitch para mantener consistencia visual",
+            "Backend-as-a-Service escalable impulsado por Firebase",
+            "Gestión segura de credenciales y permisos OAuth vía Google Cloud Console",
+            "Despliegue ágil y enrutamiento seguro mediante Netlify y DNS (CNAME, TXT, A)",
+            "Optimización e indexación SEO validada con Google Search Console"
+        ]
     }
 ]
 
