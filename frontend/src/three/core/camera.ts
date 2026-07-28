@@ -67,14 +67,11 @@ const calculateContactTransform = () => {
     instance.position.y -= outProgress * 4;
   }
   
-  // Desplazar el personaje a la derecha en móviles horizontales
-  if (isLandscape && !isMd) {
-    instance.position.x = -1.5;
-  }
-
   const focus = contactFocus[breakpoint].clone();
   if (isLandscape && !isMd) {
-    focus.x = -1.5;
+    // Solo rotamos la cámara hacia la izquierda para que el personaje 
+    // aparezca a la derecha, pero lo seguimos viendo de frente
+    focus.x = -2.5;
   }
   instance.lookAt(focus);
 };
