@@ -3,6 +3,7 @@ import { soundsEnabled, howlerUnlocked } from "../features/sounds/composables/us
 import ButtonRound from "./ButtonRound.vue";
 import Volume from "./icons/Volume.vue";
 import { t } from "../i18n/utils/translate";
+import { Howler } from "howler";
 
 const props = defineProps<{
   isDarkTheme: boolean;
@@ -10,6 +11,9 @@ const props = defineProps<{
 
 const toggleSounds = () => {
   soundsEnabled.value = !soundsEnabled.value;
+  if (Howler.ctx && Howler.ctx.state === "suspended") {
+    Howler.ctx.resume();
+  }
 };
 </script>
 
