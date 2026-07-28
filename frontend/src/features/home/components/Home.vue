@@ -219,7 +219,6 @@ watch(
   &-contact {
     width: 100%;
     min-height: calc(var(--lvh) * 100);
-    max-height: calc(var(--lvh) * 100);
   }
 }
 

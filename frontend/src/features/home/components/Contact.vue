@@ -214,7 +214,6 @@ onUnmounted(() => {
 .contact {
   width: 100%;
   max-width: calc(var(--svw) * 100);
-  overflow: hidden;
   min-height: calc(var(--lvh) * 100);
   padding: var(--space-outer);
   padding-top: 120px;
