@@ -218,6 +218,10 @@ onUnmounted(() => {
   padding: var(--space-outer);
   padding-top: 120px;
 
+  @media (orientation: landscape) and (max-height: 600px) {
+    padding-top: var(--space-xl);
+  }
+
   @include mixins.mq("md") {
     padding-top: var(--space-xxl);
   }
@@ -231,8 +235,12 @@ onUnmounted(() => {
     flex-direction: column;
     gap: var(--space-md);
 
+    @media (orientation: landscape) and (max-height: 600px) {
+      grid-column: 1 / 7;
+    }
+
     @include mixins.mq("sm") {
-      grid-column: 1 / 8;
+      grid-column: 1 / 7;
     }
 
     @include mixins.mq("md") {
@@ -265,7 +273,11 @@ onUnmounted(() => {
     flex-direction: column;
     gap: var(--space-md);
     margin: var(--space-md) 0;
-    margin-top: 150px;
+    margin-top: 55vh; // Mueve el formulario abajo del avatar en móviles
+
+    @media (orientation: landscape) and (max-height: 600px) {
+      margin-top: var(--space-md);
+    }
 
     @include mixins.mq("sm") {
       flex-direction: row;

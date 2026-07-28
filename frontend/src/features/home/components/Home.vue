@@ -24,7 +24,7 @@ const stickyObserver = ref<IntersectionObserver | null>(null);
 const scrolledPastIntro = ref(false);
 const projectsLoaded = ref(false);
 const contactRef = ref<HTMLElement | null>(null);
-const contactBottom = ref<number>(0);
+const contactTop = ref<number>(0);
 const aboutSpacerRef = ref<HTMLElement | null>(null);
 const isHoveringObject3D = ref<boolean>(false);
 const threeCanvasRef = ref<HTMLCanvasElement | null>(null);
@@ -39,25 +39,23 @@ const isStickyVisible = computed(() => {
   return scrolledPastIntro.value || !projectsLoaded.value;
 });
 
-const updateContactBottomOffset = () => {
+const updateContactTopOffset = () => {
   if (!contactRef.value) return;
   const bounding = contactRef.value.getBoundingClientRect();
-  const documentBottom = document.documentElement.scrollHeight;
-  const elementBottom = bounding.bottom + window.scrollY;
-  // distance from bottom of document to bottom of contact section
-  contactBottom.value = documentBottom - elementBottom;
+  const elementTop = bounding.top + window.scrollY;
+  contactTop.value = elementTop;
 };
 
 watch([projectVisible, isTransitioning], () => {
   if (!projectVisible.value) {
-    updateContactBottomOffset();
+    updateContactTopOffset();
   }
 });
 
 watchEffect((onInvalidate) => {
   if (!contactRef.value || preloaderVisible.value) return;
 
-  const resizeObserver = new ResizeObserver(updateContactBottomOffset);
+  const resizeObserver = new ResizeObserver(updateContactTopOffset);
   resizeObserver.observe(contactRef.value as HTMLElement);
 
   //const intersectionObserver = new IntersectionObserver(updateContactBottomOffset);
@@ -146,7 +144,7 @@ watch(
         <div
           class="intro-sticky"
           :class="{ 'intro-sticky-visible': isStickyVisible }"
-          :style="{ '--contact-bottom': `${contactBottom}px` }"
+          :style="{ '--contact-top': `${contactTop}px` }"
         >
           <canvas :class="['three-canvas', { 'three-canvas-contact': !isStickyVisible }]" ref="threeCanvasRef"></canvas>
           <div :class="{ 'intro-about-hidden': !isStickyVisible }">
@@ -177,7 +175,7 @@ watch(
 
   &-contact {
     position: absolute;
-    bottom: var(--contact-bottom);
+    top: var(--contact-top);
     left: 0;
     width: 100%;
     height: calc(var(--lvh) * 100);
