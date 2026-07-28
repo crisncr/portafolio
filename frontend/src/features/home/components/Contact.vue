@@ -298,7 +298,7 @@ onUnmounted(() => {
     display: flex;
     flex-direction: column;
     gap: var(--space-sm);
-    flex: 1;
+    height: 100%;
 
     &-title {
       font-size: var(--font-size-md);
