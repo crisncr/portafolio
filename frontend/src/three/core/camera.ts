@@ -62,14 +62,21 @@ const calculateContactTransform = () => {
   const outProgress = sceneWeightsInOut.contact.out;
 
   instance.position.copy(contactPosition[breakpoint]);
-  //instance.position.y += inProgress * (isMd ? 4 : 6);
-  //instance.position.y -= outProgress * (isMd ? 4 : 6);
   if (isLandscape && isMd) {
     instance.position.y += inProgress * 4;
     instance.position.y -= outProgress * 4;
   }
+  
+  // Desplazar el personaje a la derecha en móviles horizontales
+  if (isLandscape && !isMd) {
+    instance.position.x = -1.5;
+  }
 
-  instance.lookAt(contactFocus[breakpoint]);
+  const focus = contactFocus[breakpoint].clone();
+  if (isLandscape && !isMd) {
+    focus.x = -1.5;
+  }
+  instance.lookAt(focus);
 };
 
 const tick = () => {

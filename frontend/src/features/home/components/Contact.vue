@@ -281,7 +281,16 @@ onUnmounted(() => {
       margin-top: var(--space-md);
 
       > .contact-card {
-        flex: 1; // Mismo tamaño lado a lado
+        flex: 1; // Default
+        
+        @media (orientation: landscape) and (max-height: 600px) {
+          &:first-child {
+            flex: 1.8; // Formulario ocupa más espacio
+          }
+          &:last-child {
+            flex: 1; // Documentos ocupa menos
+          }
+        }
       }
     }
   }
