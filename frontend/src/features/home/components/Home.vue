@@ -24,7 +24,6 @@ const stickyObserver = ref<IntersectionObserver | null>(null);
 const scrolledPastIntro = ref(false);
 const projectsLoaded = ref(false);
 const contactRef = ref<HTMLElement | null>(null);
-const contactTop = ref<number>(0);
 const aboutSpacerRef = ref<HTMLElement | null>(null);
 const isHoveringObject3D = ref<boolean>(false);
 const threeCanvasRef = ref<HTMLCanvasElement | null>(null);
@@ -39,32 +38,10 @@ const isStickyVisible = computed(() => {
   return scrolledPastIntro.value || !projectsLoaded.value;
 });
 
-const updateContactTopOffset = () => {
-  if (!contactRef.value) return;
-  const bounding = contactRef.value.getBoundingClientRect();
-  const elementTop = bounding.top + window.scrollY;
-  contactTop.value = elementTop;
-};
+// Removed unused contactTop offset logic
 
-watch([projectVisible, isTransitioning], () => {
-  if (!projectVisible.value) {
-    updateContactTopOffset();
-  }
-});
-
-watchEffect((onInvalidate) => {
+watchEffect(() => {
   if (!contactRef.value || preloaderVisible.value) return;
-
-  const resizeObserver = new ResizeObserver(updateContactTopOffset);
-  resizeObserver.observe(contactRef.value as HTMLElement);
-
-  //const intersectionObserver = new IntersectionObserver(updateContactBottomOffset);
-  //intersectionObserver.observe(contactRef.value as HTMLElement);
-
-  onInvalidate(() => {
-    resizeObserver.disconnect();
-    //intersectionObserver.disconnect();
-  });
 });
 
 const updateCursor = () => {
@@ -144,7 +121,6 @@ watch(
         <div
           class="intro-sticky"
           :class="{ 'intro-sticky-visible': isStickyVisible }"
-          :style="{ '--contact-top': `${contactTop}px` }"
         >
           <canvas :class="['three-canvas', { 'three-canvas-contact': !isStickyVisible }]" ref="threeCanvasRef"></canvas>
           <div :class="{ 'intro-about-hidden': !isStickyVisible }">
@@ -180,6 +156,8 @@ watch(
     width: 100%;
     height: calc(var(--lvh) * 100);
     max-height: calc(var(--lvh) * 100);
+    transform: translateZ(0); /* Force hardware acceleration to prevent iOS crashes */
+    will-change: transform;
   }
 }
 
