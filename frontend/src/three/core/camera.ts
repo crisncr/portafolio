@@ -71,7 +71,7 @@ const calculateContactTransform = () => {
   if (isLandscape && !isMd) {
     // Solo rotamos la cámara hacia la izquierda para que el personaje 
     // aparezca a la derecha, pero lo seguimos viendo de frente
-    focus.x = -2.5;
+    focus.x = -3.5;
   }
   instance.lookAt(focus);
 };
