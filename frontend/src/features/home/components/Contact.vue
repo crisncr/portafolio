@@ -236,7 +236,11 @@ onUnmounted(() => {
     gap: var(--space-md);
 
     @include mixins.mq("sm") {
-      grid-column: 1 / 13; // Ancho completo para que entren uno al lado del otro
+      grid-column: 1 / 13; // Ancho completo para tablet
+      
+      @media (orientation: landscape) and (max-height: 600px) {
+        grid-column: 1 / 9; // Más pequeño en celular horizontal (66% del ancho)
+      }
     }
 
     @include mixins.mq("md") {
@@ -281,16 +285,7 @@ onUnmounted(() => {
       margin-top: var(--space-md);
 
       > .contact-card {
-        flex: 1; // Default
-        
-        @media (orientation: landscape) and (max-height: 600px) {
-          &:first-child {
-            flex: 1.8; // Formulario ocupa más espacio
-          }
-          &:last-child {
-            flex: 1; // Documentos ocupa menos
-          }
-        }
+        flex: 1; // Mismo tamaño lado a lado
       }
     }
   }
