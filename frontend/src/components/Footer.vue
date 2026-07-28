@@ -13,8 +13,10 @@ interface Props {
 }
 
 const handleBackToTop = () => {
-  if (!lenis.value) return;
-  lenis.value.scrollTo(0);
+  if (lenis.value) {
+    lenis.value.scrollTo(0);
+  }
+  window.scrollTo({ top: 0, behavior: "smooth" });
 };
 
 const { withSocial = true } = defineProps<Props>();
@@ -94,6 +96,7 @@ const showAttribution = import.meta.env.VITE_SHOW_ATTRIBUTION !== "false";
     width: 100%;
     max-width: calc(var(--breakpoint-xxxl));
     padding: calc(var(--space-outer) + var(--space-sm)) var(--space-outer);
+    padding-bottom: 120px;
     position: relative;
   }
 

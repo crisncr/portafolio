@@ -217,7 +217,7 @@ onUnmounted(() => {
   overflow: hidden;
   min-height: calc(var(--lvh) * 100);
   padding: var(--space-outer);
-  padding-top: var(--space-lg);
+  padding-top: 120px;
 
   @include mixins.mq("md") {
     padding-top: var(--space-xxl);
@@ -274,8 +274,10 @@ onUnmounted(() => {
   }
 
   &-card {
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     border-radius: var(--radius-md);
     padding: var(--space-md);
     display: flex;
