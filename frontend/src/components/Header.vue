@@ -188,11 +188,7 @@ const getInTouchClassNames = computed(() => {
   }
 
   &-get-in-touch {
-    display: none;
-
-    @include mixins.mq("md") {
-      display: flex;
-    }
+    display: flex;
   }
 
   &-logo {

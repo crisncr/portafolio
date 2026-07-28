@@ -24,19 +24,26 @@ const ariaLabels = {
 const isMounted = ref(false);
 
 const barStyle = ref({ transform: "" });
-const ITEM_WIDTH = 128;
+const ITEM_WIDTH = ref(128);
 
 const { isDarkTheme, hasScrolledIntoView } = useHeaderTheme();
 
 const updateBarPosition = () => {
   const index = sections.indexOf(activeLink.value as ActiveLink);
-  const left = index * ITEM_WIDTH;
+  const left = index * ITEM_WIDTH.value;
   barStyle.value = {
     transform: `translateX(${left}px)`,
   };
 };
 
 onMounted(() => {
+  const updateWidth = () => {
+    ITEM_WIDTH.value = window.innerWidth < 1024 ? 96 : 128;
+    updateBarPosition();
+  };
+  updateWidth();
+  window.addEventListener("resize", updateWidth);
+
   sections.forEach((section) => {
     ScrollTrigger.create({
       trigger: `#${section}`,
@@ -95,21 +102,22 @@ onMounted(() => {
 <style scoped lang="scss">
 .header-home {
   position: fixed;
-  top: 0;
+  top: auto;
+  bottom: var(--space-md);
   left: 50%;
   transform: translateX(-50%);
   z-index: var(--z-index-header-home);
   height: var(--height-header);
   align-items: center;
   justify-content: center;
-  display: none;
+  display: flex;
   opacity: 0;
   transition:
     opacity 0.3s ease-in-out,
     transform var(--transition-route-duration) var(--transition-route-ease);
 
   &-isProjectPage {
-    transform: translateX(-50%) translateY(-100%);
+    transform: translateX(-50%) translateY(100px);
   }
 
   &-mounted {
@@ -117,7 +125,12 @@ onMounted(() => {
   }
 
   @include mixins.mq("lg") {
-    display: flex;
+    top: 0;
+    bottom: auto;
+    
+    &-isProjectPage {
+      transform: translateX(-50%) translateY(-100%);
+    }
   }
 
   &-links {
@@ -142,7 +155,7 @@ onMounted(() => {
     top: 3px;
     left: 3px;
     height: calc(100% - 6px);
-    width: 128px;
+    width: 96px;
     background: var(--color-orange-400);
     border-radius: 100px;
     transition:
@@ -151,6 +164,10 @@ onMounted(() => {
       background-color 0.1s ease-in-out;
     z-index: 1;
     opacity: 0;
+
+    @include mixins.mq("lg") {
+      width: 128px;
+    }
 
     &-dark {
       background-color: var(--color-cyan-500);
@@ -169,10 +186,15 @@ onMounted(() => {
     border: none;
     background: none;
     transition: color 0.1s ease-in-out;
-    font-size: var(--font-size-md);
-    width: 128px;
+    font-size: var(--font-size-sm);
+    width: 96px;
     white-space: nowrap;
     text-transform: uppercase;
+
+    @include mixins.mq("lg") {
+      width: 128px;
+      font-size: var(--font-size-md);
+    }
 
     &-active {
       color: var(--color-white-400);
