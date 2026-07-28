@@ -241,12 +241,12 @@ onUnmounted(() => {
 
     @include mixins.mq("md") {
       gap: var(--space-xl);
-      grid-column: 1 / 7;
+      grid-column: 1 / 6;
       padding-top: var(--space-lg);
     }
 
     @include mixins.mq("lg") {
-      grid-column: 2 / 7;
+      grid-column: 2 / 6;
     }
   }
 
@@ -283,10 +283,6 @@ onUnmounted(() => {
       > .contact-card {
         flex: 1; // Mismo tamaño lado a lado
       }
-    }
-
-    @include mixins.mq("md") {
-      flex-direction: column; // Apilar en escritorio para que no se aplasten en la columna estrecha
     }
   }
 
