@@ -235,22 +235,18 @@ onUnmounted(() => {
     flex-direction: column;
     gap: var(--space-md);
 
-    @media (orientation: landscape) and (max-height: 600px) {
-      grid-column: 1 / 7;
-    }
-
     @include mixins.mq("sm") {
-      grid-column: 1 / 7;
+      grid-column: 1 / 13; // Ancho completo para que entren uno al lado del otro
     }
 
     @include mixins.mq("md") {
       gap: var(--space-xl);
-      grid-column: 1 / 6;
+      grid-column: 1 / 7;
       padding-top: var(--space-lg);
     }
 
     @include mixins.mq("lg") {
-      grid-column: 2 / 6;
+      grid-column: 2 / 7;
     }
   }
 
@@ -283,6 +279,14 @@ onUnmounted(() => {
       flex-direction: row;
       gap: var(--space-lg);
       margin-top: var(--space-md);
+
+      > .contact-card {
+        flex: 1; // Mismo tamaño lado a lado
+      }
+    }
+
+    @include mixins.mq("md") {
+      flex-direction: column; // Apilar en escritorio para que no se aplasten en la columna estrecha
     }
   }
 
