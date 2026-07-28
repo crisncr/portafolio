@@ -266,18 +266,18 @@ onUnmounted(() => {
     flex-direction: column;
     gap: var(--space-md);
     margin: var(--space-md) 0;
+    margin-top: 150px;
 
     @include mixins.mq("sm") {
       flex-direction: row;
       gap: var(--space-lg);
+      margin-top: var(--space-md);
     }
   }
 
   &-card {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
     border-radius: var(--radius-md);
     padding: var(--space-md);
     display: flex;

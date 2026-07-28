@@ -95,20 +95,17 @@ const showAttribution = import.meta.env.VITE_SHOW_ATTRIBUTION !== "false";
     gap: var(--space-xl);
     width: 100%;
     max-width: calc(var(--breakpoint-xxxl));
-    padding: calc(var(--space-outer) + var(--space-sm)) var(--space-outer);
-    padding-bottom: 120px;
+    padding: calc(var(--space-outer) + var(--space-sm) + 60px) var(--space-outer) 120px var(--space-outer);
     position: relative;
   }
 
   &-back-to-top {
     cursor: pointer;
-
-    @include mixins.mq("md") {
-      position: absolute;
-      top: calc(var(--space-outer) + var(--space-sm));
-      left: 50%;
-      transform: translateX(-50%);
-    }
+    position: absolute;
+    top: calc(var(--space-outer) + var(--space-sm));
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
 
     &-icon {
       transform: rotate(-90deg);
