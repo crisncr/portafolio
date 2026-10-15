@@ -82,6 +82,16 @@ const classes = computed(() => ["tag", `tag-variant-${props.variant}`]);
       color: white;
     }
 
+    &-python {
+      background-color: #ffd43b;
+      color: #1e415e;
+    }
+
+    &-fastapi {
+      background-color: #009688;
+      color: white;
+    }
+
     &-ogl {
       background-color: #0e5495;
       color: white;

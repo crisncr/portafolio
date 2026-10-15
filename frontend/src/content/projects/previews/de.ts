@@ -19,4 +19,10 @@ export default [
     thumbnail: "/Proyecto3/Captura de pantalla 2026-01-08 145322.png",
     description: "Sistema SPA integrado con JD Edwards",
   },
+  {
+    title: "AURA Hallazgos",
+    slug: "hallazgos",
+    thumbnail: "/proyecto5/hallazgos-thumb.jpg",
+    description: "App móvil para reportar hallazgos en obra",
+  },
 ] as const satisfies ProjectPreview[];

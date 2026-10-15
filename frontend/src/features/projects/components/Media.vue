@@ -15,6 +15,7 @@ export interface Props {
   caption?: string;
   index: number;
   contain?: boolean;
+  frame?: "phone";
 }
 
 const props = defineProps<Props>();
@@ -22,7 +23,8 @@ const props = defineProps<Props>();
 const wrapperClasses = computed(() => {
   return {
     "project-media": true,
-    "project-media-contain": props.contain,
+    "project-media-contain": props.contain || props.frame === "phone",
+    "project-media-phone": props.frame === "phone",
   };
 });
 
@@ -63,7 +65,7 @@ onMounted(async () => {
         :alt="props.alt"
         loading="lazy"
         fetchpriority="high"
-        :class="['project-media-image', { 'project-media-image-contain': props.contain }]"
+        :class="['project-media-image', { 'project-media-image-contain': props.contain || props.frame === 'phone' }]"
         ref="mediaRef"
       />
       <video
@@ -101,6 +103,20 @@ onMounted(async () => {
   &-contain {
     aspect-ratio: auto;
     height: auto;
+  }
+
+  &-phone {
+    max-width: 400px;
+
+    .project-media-content {
+      height: auto;
+      border-radius: 32px;
+      box-shadow: 0 22px 50px rgba(28, 24, 18, 0.14);
+    }
+
+    .project-media-image {
+      display: block;
+    }
   }
 
   @include mixins.mq("md") {

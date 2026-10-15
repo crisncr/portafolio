@@ -25,4 +25,10 @@ export default [
     thumbnail: "/proyecto4/drivesync-1.png",
     description: "Portal web de sincronización de archivos",
   },
+  {
+    title: "AURA Hallazgos",
+    slug: "hallazgos",
+    thumbnail: "/proyecto5/hallazgos-thumb.jpg",
+    description: "App móvil para reportar hallazgos en obra",
+  },
 ] as const satisfies ProjectPreview[];
