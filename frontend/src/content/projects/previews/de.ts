@@ -25,4 +25,10 @@ export default [
     thumbnail: "/proyecto5/hallazgos-thumb.jpg",
     description: "App móvil para reportar hallazgos en obra",
   },
+  {
+    title: "Cargas Familiares Aura",
+    slug: "cargas",
+    thumbnail: "/proyecto6/inicio sesion registro de cargas.png",
+    description: "Registro de cargas familiares para el seguro de salud",
+  },
 ] as const satisfies ProjectPreview[];

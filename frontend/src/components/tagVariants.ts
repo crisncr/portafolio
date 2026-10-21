@@ -19,7 +19,9 @@ export type TagVariant =
   | "tailwind"
   | "firebase"
   | "netlify"
-  | "stitch";
+  | "stitch"
+  | "typescript"
+  | "appsscript";
 
 export const tagLabels = {
   three: "Three.js",
@@ -42,5 +44,7 @@ export const tagLabels = {
   tailwind: "Tailwind CSS",
   firebase: "Firebase",
   netlify: "Netlify",
-  stitch: "Stitch"
+  stitch: "Stitch",
+  typescript: "TypeScript",
+  appsscript: "Apps Script",
 } as const satisfies Record<TagVariant, string>;

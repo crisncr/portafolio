@@ -92,6 +92,16 @@ const classes = computed(() => ["tag", `tag-variant-${props.variant}`]);
       color: white;
     }
 
+    &-typescript {
+      background-color: #3178c6;
+      color: white;
+    }
+
+    &-appsscript {
+      background-color: #4285f4;
+      color: white;
+    }
+
     &-ogl {
       background-color: #0e5495;
       color: white;
