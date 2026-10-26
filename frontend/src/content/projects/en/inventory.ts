@@ -11,6 +11,15 @@ export default {
       type: "media",
       props: {
         type: "image",
+        src: "/proyecto2/inicio de sesion.png",
+        alt: "Inicio de sesión",
+        caption: "Inicio de sesión",
+      },
+    },
+    {
+      type: "media",
+      props: {
+        type: "image",
         src: "/proyecto2/dashboard.png",
         alt: "Dashboard",
         caption: "Dashboard Principal",

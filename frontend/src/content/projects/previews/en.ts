@@ -4,7 +4,7 @@ export default [
   {
     title: "Gestión Inventario",
     slug: "inventory",
-    thumbnail: "/proyecto2/dashboard.png",
+    thumbnail: "/proyecto2/inicio de sesion.png",
     description: "Plataforma de gestión web y móvil",
   },
   {
