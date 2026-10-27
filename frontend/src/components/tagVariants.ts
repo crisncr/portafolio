@@ -21,7 +21,8 @@ export type TagVariant =
   | "netlify"
   | "stitch"
   | "typescript"
-  | "appsscript";
+  | "appsscript"
+  | "sqlite";
 
 export const tagLabels = {
   three: "Three.js",
@@ -47,4 +48,5 @@ export const tagLabels = {
   stitch: "Stitch",
   typescript: "TypeScript",
   appsscript: "Apps Script",
+  sqlite: "SQLite",
 } as const satisfies Record<TagVariant, string>;

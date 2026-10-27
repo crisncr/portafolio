@@ -31,4 +31,10 @@ export default [
     thumbnail: "/proyecto6/inicio sesion registro de cargas.png",
     description: "Registro de cargas familiares para el seguro de salud",
   },
+  {
+    title: "Monitoreo Sísmico Aura",
+    slug: "sismicidad",
+    thumbnail: "/Proyecto7/1.png",
+    description: "Seguimiento sísmico de los polígonos de El Teniente",
+  },
 ] as const satisfies ProjectPreview[];
