@@ -11,7 +11,7 @@ export default {
       type: "media",
       props: {
         type: "image",
-        src: "/proyecto6/inicio sesion registro de cargas.png",
+        src: "/proyecto6/1.png",
         alt: "Primer paso del registro: RUT del trabajador titular",
         caption: "Registro del titular",
         contain: true,
@@ -21,7 +21,7 @@ export default {
       type: "media",
       props: {
         type: "image",
-        src: "/proyecto6/registro de carga.png",
+        src: "/proyecto6/2.png",
         alt: "Revisión de la carga familiar y aceptación de términos",
         caption: "Revisión y envío",
         contain: true,
@@ -31,7 +31,7 @@ export default {
       type: "media",
       props: {
         type: "image",
-        src: "/proyecto6/login administrador.png",
+        src: "/proyecto6/3.png",
         alt: "Acceso al panel con cuenta de Google",
         caption: "Acceso al panel",
         contain: true,
@@ -41,7 +41,7 @@ export default {
       type: "media",
       props: {
         type: "image",
-        src: "/proyecto6/administracion.png",
+        src: "/proyecto6/4.png",
         alt: "Inicio del panel con total de registros, cargas y última vigencia",
         caption: "Panel de administración",
         contain: true,

@@ -34,7 +34,7 @@ export default [
   {
     title: "Cargas Familiares Aura",
     slug: "cargas",
-    thumbnail: "/proyecto6/inicio sesion registro de cargas.png",
+    thumbnail: "/proyecto6/1.png",
     description: "Registro de cargas familiares para el seguro de salud",
   },
   {
